@@ -65,7 +65,7 @@ export default function HomePage() {
       jobTitle: "Full-Stack Developer & SEO Specialist",
       description: profileBlogPost.description,
       email: profileBlogPost.email,
-      url: "https://epergaboni.com/"
+      url: "https://www.epergaboni.com/"
     },
     {
       "@context": "https://schema.org",

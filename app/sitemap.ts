@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { getAllBlogPosts, getBlogTotalPages } from "../lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://epergaboni.com";
+  const baseUrl = "https://www.epergaboni.com";
   const posts = getAllBlogPosts();
   const serviceSlugs = ["web-design", "web-development", "seo"];
   const totalPages = getBlogTotalPages();

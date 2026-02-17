@@ -119,7 +119,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   const contentBlocks = parseMarkdownBlocks(post.content);
-  const canonicalUrl = `https://epergaboni.com/blog/${post.slug}`;
+  const canonicalUrl = `https://www.epergaboni.com/blog/${post.slug}`;
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -131,7 +131,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     },
     datePublished: post.date,
     mainEntityOfPage: canonicalUrl,
-    image: `https://epergaboni.com${post.coverImage}`
+    image: `https://www.epergaboni.com${post.coverImage}`
   };
 
   return (

@@ -6,7 +6,7 @@ import "./globals.css";
 const OG_IMAGE = "/illustrations/og.png";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://epergaboni.com"),
+  metadataBase: new URL("https://www.epergaboni.com/"),
   title: {
     default: "Eper Gaboni | Full-Stack Developer & SEO Specialist",
     template: "%s | Eper Gaboni"

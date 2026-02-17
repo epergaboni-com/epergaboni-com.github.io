@@ -11,7 +11,7 @@ tags:
   - architecture
   - operations
 coverImage: /images/illustrations/blog-12.svg
-canonicalUrl: 'https://menca-digital.vercel.app/blog/headless-vs-flat-file-cms'
+canonicalUrl: 'https://www.epergaboni.com/blog/headless-vs-flat-file-cms'
 ---
 ## Why this topic matters for growth in 2025
 

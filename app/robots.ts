@@ -44,7 +44,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/"
       }
     ],
-    host: "https://epergaboni.com",
-    sitemap: "https://epergaboni.com/sitemap.xml"
+    host: "https://www.epergaboni.com",
+    sitemap: "https://www.epergaboni.com/sitemap.xml"
   };
 }
