@@ -3,6 +3,7 @@ import { profileBlogPost } from "../blog/eper-gaboni-profile";
 import HeroAvatar from "../components/hero-avatar";
 
 const canonicalPath = "/";
+const OG_IMAGE = "/illustrations/og.png";
 
 export const metadata: Metadata = {
   title: "Eper Gaboni - Full-Stack Developer & SEO Specialist",
@@ -14,12 +15,14 @@ export const metadata: Metadata = {
     type: "profile",
     url: canonicalPath,
     title: profileBlogPost.title,
-    description: profileBlogPost.description
+    description: profileBlogPost.description,
+    images: [{ url: OG_IMAGE }]
   },
   twitter: {
     card: "summary_large_image",
     title: profileBlogPost.title,
-    description: profileBlogPost.description
+    description: profileBlogPost.description,
+    images: [OG_IMAGE]
   }
 };
 

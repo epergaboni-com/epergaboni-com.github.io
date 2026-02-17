@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+const OG_IMAGE = "/illustrations/og.png";
+
 export const metadata: Metadata = {
   title: "Contact",
   description: "Contact Eper Gaboni for web design, development, and SEO support.",
@@ -10,12 +12,14 @@ export const metadata: Metadata = {
     type: "website",
     url: "/contact",
     title: "Contact | Eper Gaboni",
-    description: "Contact Eper Gaboni for web design, development, and SEO support."
+    description: "Contact Eper Gaboni for web design, development, and SEO support.",
+    images: [{ url: OG_IMAGE }]
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Contact | Eper Gaboni",
-    description: "Contact Eper Gaboni for web design, development, and SEO support."
+    description: "Contact Eper Gaboni for web design, development, and SEO support.",
+    images: [OG_IMAGE]
   }
 };
 

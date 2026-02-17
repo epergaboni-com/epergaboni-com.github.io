@@ -3,6 +3,7 @@ import BlogPagination from "../../components/blog-pagination";
 import { getPaginatedBlogPosts } from "../../lib/blog";
 
 const canonicalPath = "/blog";
+const OG_IMAGE = "/illustrations/og.png";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -16,13 +17,15 @@ export const metadata: Metadata = {
     url: canonicalPath,
     title: "Blog | Eper Gaboni",
     description:
-      "Web design, development, SEO, and conversion strategy articles from Eper Gaboni."
+      "Web design, development, SEO, and conversion strategy articles from Eper Gaboni.",
+    images: [{ url: OG_IMAGE }]
   },
   twitter: {
     card: "summary_large_image",
     title: "Blog | Eper Gaboni",
     description:
-      "Web design, development, SEO, and conversion strategy articles from Eper Gaboni."
+      "Web design, development, SEO, and conversion strategy articles from Eper Gaboni.",
+    images: [OG_IMAGE]
   }
 };
 

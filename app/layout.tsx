@@ -3,6 +3,8 @@ import SiteFooter from "../components/site-footer";
 import SiteHeader from "../components/site-header";
 import "./globals.css";
 
+const OG_IMAGE = "/illustrations/og.png";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://epergaboni.com"),
   title: {
@@ -31,13 +33,19 @@ export const metadata: Metadata = {
     siteName: "Eper Gaboni",
     title: "Eper Gaboni | Full-Stack Developer & SEO Specialist",
     description:
-      "Web design, full-stack development, SEO audits, technical SEO fixes, and server management."
+      "Web design, full-stack development, SEO audits, technical SEO fixes, and server management.",
+    images: [
+      {
+        url: OG_IMAGE
+      }
+    ]
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Eper Gaboni | Full-Stack Developer & SEO Specialist",
     description:
-      "Portfolio blog of Eper Gaboni, a full-stack developer and SEO specialist in the Philippines."
+      "Portfolio blog of Eper Gaboni, a full-stack developer and SEO specialist in the Philippines.",
+    images: [OG_IMAGE]
   },
   robots: {
     index: true,

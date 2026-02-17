@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+const OG_IMAGE = "/illustrations/og.png";
+
 interface ServiceContent {
   title: string;
   summary: string;
@@ -67,12 +69,14 @@ export function generateMetadata({ params }: ServicePageProps): Metadata {
       type: "website",
       url: canonicalPath,
       title: `${service.title} | Eper Gaboni`,
-      description: service.summary
+      description: service.summary,
+      images: [{ url: OG_IMAGE }]
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: `${service.title} | Eper Gaboni`,
-      description: service.summary
+      description: service.summary,
+      images: [OG_IMAGE]
     }
   };
 }

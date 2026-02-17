@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import BlogPagination from "../../../../components/blog-pagination";
 import { getBlogTotalPages, getPaginatedBlogPosts } from "../../../../lib/blog";
 
+const OG_IMAGE = "/illustrations/og.png";
+
 interface BlogPaginationPageProps {
   params: {
     page: string;
@@ -39,12 +41,14 @@ export function generateMetadata({ params }: BlogPaginationPageProps): Metadata 
       type: "website",
       url: canonicalPath,
       title: `Blog - Page ${pageNumber} | Eper Gaboni`,
-      description: `Page ${pageNumber} of the Eper Gaboni blog archive.`
+      description: `Page ${pageNumber} of the Eper Gaboni blog archive.`,
+      images: [{ url: OG_IMAGE }]
     },
     twitter: {
       card: "summary_large_image",
       title: `Blog - Page ${pageNumber} | Eper Gaboni`,
-      description: `Page ${pageNumber} of the Eper Gaboni blog archive.`
+      description: `Page ${pageNumber} of the Eper Gaboni blog archive.`,
+      images: [OG_IMAGE]
     }
   };
 }

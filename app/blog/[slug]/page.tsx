@@ -11,6 +11,8 @@ import {
   parseMarkdownBlocks
 } from "../../../lib/blog";
 
+const OG_IMAGE = "/illustrations/og.png";
+
 interface BlogPostPageProps {
   params: {
     slug: string;
@@ -108,12 +110,14 @@ export function generateMetadata({ params }: BlogPostPageProps): Metadata {
       title: post.title,
       description: post.description,
       publishedTime: post.date,
-      authors: [post.author]
+      authors: [post.author],
+      images: [{ url: OG_IMAGE }]
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
-      description: post.description
+      description: post.description,
+      images: [OG_IMAGE]
     }
   };
 }

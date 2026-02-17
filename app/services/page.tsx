@@ -1,11 +1,26 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+const OG_IMAGE = "/illustrations/og.png";
+
 export const metadata: Metadata = {
   title: "Services",
   description: "Web design, web development, and SEO services by Eper Gaboni.",
   alternates: {
     canonical: "/services"
+  },
+  openGraph: {
+    type: "website",
+    url: "/services",
+    title: "Services | Eper Gaboni",
+    description: "Web design, web development, and SEO services by Eper Gaboni.",
+    images: [{ url: OG_IMAGE }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Services | Eper Gaboni",
+    description: "Web design, web development, and SEO services by Eper Gaboni.",
+    images: [OG_IMAGE]
   }
 };
 
