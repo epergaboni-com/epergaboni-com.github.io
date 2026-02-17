@@ -1,13 +1,13 @@
 export const profileBlogPost = {
   slug: "eper-gaboni-web-designer-seo-specialist-philippines",
-  title: "Eper Gaboni - Full-Stack Developer & SEO Specialist in the Philippines",
+  title: "Eper Gaboni - Full-Stack Web Developer & SEO Specialist in the Philippines",
   description:
     "Eper Gaboni is a Philippine-based full-stack developer and SEO specialist offering web design, technical SEO, website speed optimization, and server management.",
   author: "Eper Gaboni",
   publishedTime: "2026-02-17T00:00:00.000Z",
   modifiedTime: "2026-02-17T00:00:00.000Z",
   intro:
-    "Hi, I'm Eper Gaboni, a Philippine-based Full-Stack Developer & SEO Specialist. I craft clean, user-friendly websites that rank well on Google and perform across devices. I've built hundreds of sites and interfaces globally. Say hello at",
+    "Hi, I'm Eper Gaboni, a Philippine-based Full-Stack Web Developer & SEO Specialist. I craft clean, user-friendly websites that rank well on Google and perform across devices. I've built hundreds of sites and interfaces globally. Say hello at",
   email: "hi@epergaboni.com",
   skills: [
     {

@@ -8,7 +8,7 @@ const OG_IMAGE = "/illustrations/og.png";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.epergaboni.com/"),
   title: {
-    default: "Eper Gaboni | Full-Stack Developer & SEO Specialist",
+    default: "Eper Gaboni | Full-Stack Web Developer & SEO Specialist",
     template: "%s | Eper Gaboni"
   },
   description:
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     locale: "en_PH",
     url: "/",
     siteName: "Eper Gaboni",
-    title: "Eper Gaboni | Full-Stack Developer & SEO Specialist",
+    title: "Eper Gaboni | Full-Stack Web Developer & SEO Specialist",
     description:
       "Web design, full-stack development, SEO audits, technical SEO fixes, and server management.",
     images: [
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Eper Gaboni | Full-Stack Developer & SEO Specialist",
+    title: "Eper Gaboni | Full-Stack Web Developer & SEO Specialist",
     description:
       "Portfolio blog of Eper Gaboni, a full-stack developer and SEO specialist in the Philippines.",
     images: [OG_IMAGE]

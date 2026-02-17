@@ -6,7 +6,7 @@ const canonicalPath = "/";
 const OG_IMAGE = "/illustrations/og.png";
 
 export const metadata: Metadata = {
-  title: "Eper Gaboni - Full-Stack Developer & SEO Specialist",
+  title: "Eper Gaboni - Full-Stack Web Developer & SEO Specialist",
   description: profileBlogPost.description,
   alternates: {
     canonical: canonicalPath
@@ -62,7 +62,7 @@ export default function HomePage() {
       "@context": "https://schema.org",
       "@type": "Person",
       name: profileBlogPost.author,
-      jobTitle: "Full-Stack Developer & SEO Specialist",
+      jobTitle: "Full-Stack Web Developer & SEO Specialist",
       description: profileBlogPost.description,
       email: profileBlogPost.email,
       url: "https://www.epergaboni.com/"
@@ -99,7 +99,7 @@ export default function HomePage() {
               Eper Gaboni
             </p>
             <h1 className="mt-5 text-3xl font-black leading-[1.08] tracking-tight text-[var(--theme-green-deep)] sm:text-5xl lg:text-7xl">
-              Full-Stack Developer & SEO Specialist in the Philippines.
+              Full-Stack Web Developer & SEO Specialist in the Philippines.
             </h1>
             <p className="mt-6 max-w-3xl text-base leading-relaxed text-[#3f3f3f] sm:text-lg lg:text-2xl">
               {profileBlogPost.intro}{" "}
