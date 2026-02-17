@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --bg: #f2f2f2;
+  --text: #101010;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, #e9efff 0%, rgba(233, 239, 255, 0) 38%),
+    radial-gradient(circle at bottom right, #e4fff2 0%, rgba(228, 255, 242, 0) 30%),
+    var(--bg);
+  color: var(--text);
+  font-family:
+    "Avenir Next",
+    "Nunito Sans",
+    "Segoe UI",
+    sans-serif;
+  overflow-x: hidden;
+}
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-up {
+  animation: revealUp 560ms ease-out both;
+}
+
+.reveal-up:nth-of-type(2) {
+  animation-delay: 80ms;
+}
+
+.reveal-up:nth-of-type(3) {
+  animation-delay: 140ms;
+}
+
+.reveal-up:nth-of-type(4) {
+  animation-delay: 200ms;
+}
