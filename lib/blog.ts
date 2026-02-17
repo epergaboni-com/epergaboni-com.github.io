@@ -32,6 +32,21 @@ export interface BlogPost extends BlogPostSummary {
   content: string;
 }
 
+function normalizeTag(tag: string): string {
+  return tag.trim().toLowerCase();
+}
+
+function filterPostsByTag(posts: BlogPostSummary[], tag?: string): BlogPostSummary[] {
+  if (!tag) {
+    return posts;
+  }
+
+  const normalizedTag = normalizeTag(tag);
+  return posts.filter((post) =>
+    post.tags.some((postTag) => normalizeTag(postTag) === normalizedTag)
+  );
+}
+
 function listMarkdownFiles(): string[] {
   return fs
     .readdirSync(BLOG_DIRECTORY)
@@ -241,20 +256,24 @@ export function getAllBlogPosts(): BlogPostSummary[] {
     });
 }
 
-export function getBlogTotalPages(postsPerPage: number = BLOGS_PER_PAGE): number {
-  const totalPosts = getAllBlogPosts().length;
+export function getBlogTotalPages(
+  postsPerPage: number = BLOGS_PER_PAGE,
+  tag?: string
+): number {
+  const totalPosts = filterPostsByTag(getAllBlogPosts(), tag).length;
   return Math.max(1, Math.ceil(totalPosts / postsPerPage));
 }
 
 export function getPaginatedBlogPosts(
   pageNumber: number,
-  postsPerPage: number = BLOGS_PER_PAGE
+  postsPerPage: number = BLOGS_PER_PAGE,
+  tag?: string
 ): {
   posts: BlogPostSummary[];
   currentPage: number;
   totalPages: number;
 } {
-  const allPosts = getAllBlogPosts();
+  const allPosts = filterPostsByTag(getAllBlogPosts(), tag);
   const totalPages = Math.max(1, Math.ceil(allPosts.length / postsPerPage));
   const safeCurrentPage = Math.min(Math.max(1, pageNumber), totalPages);
   const startIndex = (safeCurrentPage - 1) * postsPerPage;

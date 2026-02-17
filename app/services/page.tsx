@@ -32,18 +32,20 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <main className="px-4 py-10 sm:px-8 sm:py-14">
+    <main className="theme-shell px-4 py-10 sm:px-8 sm:py-14">
       <section className="mx-auto max-w-4xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#666666] sm:text-sm">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--theme-green-deep)] sm:text-sm">
           Services
         </p>
-        <h1 className="mt-2 text-3xl font-extrabold sm:text-4xl">What I can help with</h1>
+        <h1 className="mt-2 text-3xl font-extrabold text-[var(--theme-green-deep)] sm:text-4xl">
+          What I can help with
+        </h1>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
           {services.map((service) => (
             <Link
               key={service.slug}
               href={`/services/${service.slug}`}
-              className="rounded-xl border border-[#dddddd] bg-white p-5 text-base font-semibold shadow-[0_8px_25px_rgba(0,0,0,0.04)] transition hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(0,0,0,0.08)]"
+              className="theme-card rounded-xl p-5 text-base font-semibold text-[var(--theme-green-deep)] transition hover:-translate-y-0.5 hover:border-[var(--theme-gold)] hover:bg-[rgba(120,120,120,0.14)] hover:shadow-[0_12px_28px_rgba(0,0,0,0.16)]"
             >
               {service.title}
             </Link>

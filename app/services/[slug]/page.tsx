@@ -89,14 +89,16 @@ export default function ServicePage({ params }: ServicePageProps) {
   }
 
   return (
-    <main className="px-4 py-10 sm:px-8 sm:py-14">
-      <section className="mx-auto max-w-3xl rounded-2xl border border-[#dddddd] bg-white p-6 shadow-[0_8px_25px_rgba(0,0,0,0.04)] sm:p-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#666666] sm:text-sm">
+    <main className="theme-shell px-4 py-10 sm:px-8 sm:py-14">
+      <section className="theme-section mx-auto max-w-3xl rounded-2xl p-6 sm:p-8">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--theme-green-deep)] sm:text-sm">
           Service
         </p>
-        <h1 className="mt-2 text-3xl font-extrabold sm:text-4xl">{service.title}</h1>
-        <p className="mt-4 text-base leading-relaxed text-[#2d2d2d] sm:text-lg">{service.summary}</p>
-        <ul className="mt-6 list-disc space-y-2 pl-6 text-base leading-relaxed text-[#2d2d2d] sm:text-lg">
+        <h1 className="mt-2 text-3xl font-extrabold text-[var(--theme-green-deep)] sm:text-4xl">
+          {service.title}
+        </h1>
+        <p className="mt-4 text-base leading-relaxed text-[#444444] sm:text-lg">{service.summary}</p>
+        <ul className="mt-6 list-disc space-y-2 pl-6 text-base leading-relaxed text-[#444444] sm:text-lg">
           {service.bullets.map((item) => (
             <li key={item}>{item}</li>
           ))}

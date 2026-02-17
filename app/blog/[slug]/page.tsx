@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import FloatingShare from "../../../components/floating-share";
 import {
-  getAllBlogPosts,
   getAllBlogSlugs,
   getBlogPostBySlug,
   parseMarkdownBlocks
@@ -15,14 +14,6 @@ interface BlogPostPageProps {
   params: {
     slug: string;
   };
-}
-
-function formatDate(dateValue: string): string {
-  return new Date(dateValue).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric"
-  });
 }
 
 function renderInlineMarkdown(text: string): ReactNode[] {
@@ -129,28 +120,6 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
   const contentBlocks = parseMarkdownBlocks(post.content);
   const canonicalUrl = `https://epergaboni.com/blog/${post.slug}`;
-  const allPosts = getAllBlogPosts();
-  const relatedCandidates = allPosts
-    .filter((candidate) => candidate.slug !== post.slug)
-    .map((candidate) => {
-      const sharedTags = candidate.tags.filter((tag) => post.tags.includes(tag)).length;
-      const categoryScore = candidate.category === post.category ? 2 : 0;
-      const score = sharedTags + categoryScore;
-
-      return {
-        ...candidate,
-        score
-      };
-    })
-    .sort((a, b) => {
-      if (b.score !== a.score) {
-        return b.score - a.score;
-      }
-
-      return new Date(b.date).getTime() - new Date(a.date).getTime();
-    });
-
-  const relatedPosts = relatedCandidates.slice(0, 3);
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -166,33 +135,28 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   };
 
   return (
-    <main className="px-4 py-10 sm:py-14">
-      <article className="mx-auto max-w-4xl">
+    <main className="theme-shell px-4 py-10 sm:py-14">
+      <article className="theme-card mx-auto max-w-4xl rounded-2xl px-5 py-6 sm:px-8 sm:py-8">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
 
-        <p className="mb-5 text-xs font-semibold uppercase tracking-[0.12em] text-[#666666] sm:text-sm">
+        <p className="mb-5 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--theme-green-deep)] sm:text-sm">
           <Link href="/blog" className="underline decoration-2 underline-offset-4">
             Back to Blog
           </Link>
         </p>
 
         <header>
-          <p className="text-xs font-semibold uppercase tracking-wide text-[#666666] sm:text-sm">
+          <p className="theme-btn-secondary inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide sm:text-sm">
             {post.category}
           </p>
-          <h1 className="mt-2 break-words text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl">
+          <h1 className="mt-3 break-words text-3xl font-extrabold leading-tight text-[var(--theme-green-deep)] sm:text-4xl lg:text-5xl">
             {post.title}
           </h1>
-          <p className="mt-4 text-base text-[#3f3f3f] sm:text-lg lg:text-xl">{post.description}</p>
-          <div className="mt-5 flex flex-wrap items-center gap-3 text-xs text-[#555555] sm:text-sm">
-            <span>{post.author}</span>
-            <span aria-hidden="true">•</span>
-            <time dateTime={post.date}>{formatDate(post.date)}</time>
-          </div>
-          <figure className="relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-xl border border-[#dcdcdc] bg-white">
+          <p className="mt-4 text-base text-[#444444] sm:text-lg lg:text-xl">{post.description}</p>
+          <figure className="relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-xl border border-[var(--line-strong)] bg-[var(--surface-soft)]">
             <Image
               src={post.coverImage}
               alt={post.title}
@@ -210,7 +174,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               return (
                 <h2
                   key={`block-${blockIndex}`}
-                  className="mt-12 break-words text-2xl font-extrabold leading-tight sm:text-3xl"
+                  className="mt-12 break-words border-l-4 border-[var(--theme-gold)] pl-3 text-2xl font-extrabold leading-tight text-[var(--theme-green-deep)] sm:text-3xl"
                 >
                   {renderInlineMarkdown(block.text ?? "")}
                 </h2>
@@ -221,7 +185,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               return (
                 <h3
                   key={`block-${blockIndex}`}
-                  className="mt-8 break-words text-xl font-extrabold leading-tight sm:text-2xl"
+                  className="mt-8 break-words text-xl font-extrabold leading-tight text-[var(--theme-green-deep)] sm:text-2xl"
                 >
                   {renderInlineMarkdown(block.text ?? "")}
                 </h3>
@@ -230,7 +194,10 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
             if (block.type === "heading-4") {
               return (
-                <h4 key={`block-${blockIndex}`} className="mt-6 text-lg font-bold leading-tight sm:text-xl">
+                <h4
+                  key={`block-${blockIndex}`}
+                  className="mt-6 text-lg font-bold leading-tight text-[var(--theme-green-deep)] sm:text-xl"
+                >
                   {renderInlineMarkdown(block.text ?? "")}
                 </h4>
               );
@@ -240,7 +207,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               return (
                 <ul
                   key={`block-${blockIndex}`}
-                  className="list-disc space-y-2 pl-6 text-base leading-relaxed sm:text-lg"
+                  className="list-disc space-y-2 pl-6 text-base leading-relaxed text-[#444444] sm:text-lg"
                 >
                   {(block.items ?? []).map((item, itemIndex) => (
                     <li key={`block-${blockIndex}-item-${itemIndex}`} className="break-words">
@@ -254,42 +221,13 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             return (
               <p
                 key={`block-${blockIndex}`}
-                className="break-words text-base leading-relaxed text-[#222222] sm:text-lg"
+                className="break-words text-base leading-relaxed text-[#444444] sm:text-lg"
               >
                 {renderInlineMarkdown(block.text ?? "")}
               </p>
             );
           })}
         </section>
-
-        {relatedPosts.length > 0 ? (
-          <section className="mt-8 border-t border-[#dddddd] pt-8">
-            <h2 className="text-2xl font-extrabold leading-tight sm:text-3xl">
-              Related Blog Posts
-            </h2>
-            <div className="mt-5 grid gap-4 md:grid-cols-3">
-              {relatedPosts.map((relatedPost) => (
-                <article
-                  key={relatedPost.slug}
-                  className="rounded-xl border border-[#dddddd] bg-white p-4 shadow-[0_8px_20px_rgba(0,0,0,0.04)]"
-                >
-                  <p className="text-xs font-semibold uppercase tracking-wide text-[#666666]">
-                    {relatedPost.category}
-                  </p>
-                  <h3 className="mt-2 text-base font-extrabold leading-tight sm:text-lg">
-                    <Link href={`/blog/${relatedPost.slug}`}>{relatedPost.title}</Link>
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[#454545]">
-                    {relatedPost.description}
-                  </p>
-                  <p className="mt-3 text-xs font-medium text-[#666666]">
-                    {formatDate(relatedPost.date)}
-                  </p>
-                </article>
-              ))}
-            </div>
-          </section>
-        ) : null}
       </article>
       <FloatingShare title={post.title} url={canonicalUrl} />
     </main>
