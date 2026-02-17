@@ -140,34 +140,6 @@ h6[class*="text-[var(--theme-green-deep)]"] {
   }
 }
 
-@keyframes heroOrbit {
-  0%,
-  20% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  45% {
-    transform: translateX(34px);
-    opacity: 0.95;
-  }
-  60% {
-    transform: translateX(86px);
-    opacity: 0;
-  }
-  61% {
-    transform: translateX(-86px);
-    opacity: 0;
-  }
-  80% {
-    transform: translateX(-28px);
-    opacity: 0.95;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
 .reveal-up {
   animation: revealUp 560ms ease-out both;
 }
@@ -182,15 +154,4 @@ h6[class*="text-[var(--theme-green-deep)]"] {
 
 .reveal-up:nth-of-type(4) {
   animation-delay: 200ms;
-}
-
-.hero-avatar-orbit {
-  animation: heroOrbit 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  will-change: transform, opacity;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-avatar-orbit {
-    animation: none;
-  }
 }
